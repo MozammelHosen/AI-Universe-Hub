@@ -1,8 +1,8 @@
 import React from "react";
 
 const SingleData = (props) => {
-  const { image, published_in, name, features } = props.data;
-  console.log(props);
+  const { image, published_in, name, features, id } = props.data;
+  // console.log(props);
   return (
     <>
       <div className="card bg-base-100 shadow-xl">
@@ -13,7 +13,7 @@ const SingleData = (props) => {
           <h2 className="card-title text-2xl font-bold">features!</h2>
           <div>
             {features.map((feature, index) => (
-              <p>
+              <p key={index}>
                 {index + 1}. {feature}
               </p>
             ))}
@@ -43,22 +43,26 @@ const SingleData = (props) => {
             </div>
           </div>
           <div className="bg-red-300 rounded-2xl p-1">
-              <span className="cursor-pointer">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </span>
+            <label
+              onClick={() => props.setUniqueId(id,name)}
+              htmlFor="my-modal-5"
+              className="cursor-pointer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </label>
           </div>
         </div>
       </div>
